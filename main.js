@@ -135,20 +135,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const imgRatio = imgWidth / imgHeight;
     const canvasRatio = canvasWidth / canvasHeight;
     
-    let drawWidth, drawHeight, drawX, drawY;
+    let drawWidth, drawHeight;
     
     // Perform "Object-Fit: Cover" calculations centered on canvas
     if (canvasRatio > imgRatio) {
       drawWidth = canvasWidth;
       drawHeight = canvasWidth / imgRatio;
-      drawX = 0;
-      drawY = (canvasHeight - drawHeight) / 2;
     } else {
       drawHeight = canvasHeight;
       drawWidth = canvasHeight * imgRatio;
-      drawX = (canvasWidth - drawWidth) / 2;
-      drawY = 0;
     }
+    
+    // Scale factor to bring the trainer in slightly (88% scale) to prevent any edge cropping
+    const scaleFactor = 0.88;
+    drawWidth *= scaleFactor;
+    drawHeight *= scaleFactor;
+    
+    const drawX = (canvasWidth - drawWidth) / 2;
+    const drawY = (canvasHeight - drawHeight) / 2;
     
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
@@ -175,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollFraction = Math.max(0, Math.min(1, scrollFraction));
     }
     
-    // Calculate progress fraction for faster rotation (completes 100% spin by 52% of scroll path - just over halfway)
-    let rotationFraction = scrollFraction / 0.52;
+    // Calculate progress fraction for faster rotation (completes 100% spin by 75% of scroll path - 75% up the screen)
+    let rotationFraction = scrollFraction / 0.75;
     rotationFraction = Math.max(0, Math.min(1, rotationFraction));
     
     // Calculate targeted frame (1 to 73) based on accelerated spin fraction

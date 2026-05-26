@@ -524,13 +524,13 @@ a {
   color: var(--text-primary);
   text-transform: uppercase;
   max-width: 650px;
-  background: rgba(6, 7, 9, 0.3); /* Premium high-transparency glass backdrop */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(255, 255, 255, 0.05);
+  background: rgba(6, 7, 9, 0.12); /* Ultra-transparent modern glassmorphism */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.04);
   padding: 0.85rem 1.75rem;
   border-radius: 14px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
   line-height: 1.5;
 }
@@ -1439,20 +1439,30 @@ a {
     grid-template-columns: 1fr;
   }
   .about-story-text {
-    text-align: center;
-    max-width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center !important;
+    max-width: 100% !important;
+    padding: 0 1.5rem !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .about-story-text .clinic-lead {
-    text-align: center;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .about-story-text .story-paragraphs {
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .about-story-text .story-para {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
   }
 }
 
