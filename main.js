@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloaderBar = document.getElementById('preloader-bar');
   const preloaderPct = document.getElementById('preloader-pct');
   const canvas = document.getElementById('scrub-canvas');
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas ? canvas.getContext('2d') : null;
   const arena = document.querySelector('.canvas-scroll-arena');
   const glowC = document.getElementById('glow-c');
   const glowT = document.getElementById('glow-t');
@@ -60,15 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const img = new Image();
       // Format number to 3-digit string (e.g., 054, 120)
       const frameNum = String(i).padStart(3, '0');
-      img.src = `${imageFolder}/ezgif-frame-${frameNum}.jpg`;
       
       img.onload = handleImageLoad;
-      
       img.onerror = () => {
         console.error(`Error preloading frame ${i}`);
         handleImageLoad(); // Force progress so missing files don't lock out the user
       };
       
+      img.src = `${imageFolder}/ezgif-frame-${frameNum}.jpg`;
       images.push(img);
     }
   }
@@ -93,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Canvas Resizing & High-DPI Scaling (16:9 Cover Fit)
   function resizeCanvas() {
+    if (!canvas) return;
     const width = window.innerWidth;
     const height = window.innerHeight;
     
@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = images[imgIndex];
     
     if (!img || !img.complete) return;
+    if (!canvas || !ctx) return;
 
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Spring Easing Loop (Decoupled LERP loop for extreme responsiveness)
   function updateCanvasLoop() {
+    if (!arena) return;
     // Smoothly LERP scroll position to eliminate layout thrashing
     currentScrollY += (lastScrollY - currentScrollY) * 0.08;
     
