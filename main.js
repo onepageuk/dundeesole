@@ -63,8 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
       
       img.onload = handleImageLoad;
       img.onerror = () => {
-        console.error(`Error preloading frame ${i}`);
-        handleImageLoad(); // Force progress so missing files don't lock out the user
+        // Smart Fallback: If it fails from the subfolder path, try fetching directly from the root
+        if (img.src.includes(imageFolder)) {
+          console.warn(`Frame ${i} failed from folder, falling back to root path...`);
+          img.src = `ezgif-frame-${frameNum}.jpg`;
+        } else {
+          // Defensive: If it fails from the root too, count it as loaded so it doesn't stall the preloader
+          console.error(`Error preloading frame ${i} from both folder and root`);
+          handleImageLoad();
+        }
       };
       
       img.src = `${imageFolder}/ezgif-frame-${frameNum}.jpg`;
