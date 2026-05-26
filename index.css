@@ -1493,8 +1493,8 @@ a {
   }
   .founder-portrait-img {
     position: relative !important;
-    width: 130px !important;
-    height: 130px !important;
+    width: 200px !important; /* Shuffled portrait image size to be significantly larger and clearer */
+    height: 200px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     border: 2.5px solid rgba(6, 182, 212, 0.4) !important;
@@ -1512,6 +1512,77 @@ a {
     background: transparent !important;
     width: 100% !important;
     text-align: center !important;
+  }
+  
+  /* 3D Stacking overlapping cards deck styles strictly on stacked screens */
+  .scroll-story-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 310px !important; /* Stitched snug height for swiping card pile */
+    margin: 1.5rem auto 2.5rem auto !important;
+    padding: 0 !important;
+    pointer-events: auto !important;
+    display: block !important;
+  }
+  .story-slide {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    width: 90% !important;
+    max-width: 440px !important;
+    height: auto !important;
+    background: rgba(12, 14, 18, 0.96) !important;
+    border: 1.5px solid rgba(6, 182, 212, 0.15) !important;
+    border-radius: 20px !important;
+    padding: 1.75rem !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    pointer-events: auto !important;
+    transform-origin: top center !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.6s step-end !important;
+  }
+  .scroll-indicator {
+    display: none !important;
+  }
+  
+  /* Overlapping deck states */
+  .story-slide.card-front {
+    transform: translateX(-50%) translate3d(0, 0, 0) scale(1.0) !important;
+    opacity: 1 !important;
+    z-index: 30 !important;
+    visibility: visible !important;
+  }
+  .story-slide.card-middle {
+    transform: translateX(-50%) translate3d(0, 14px, -20px) scale(0.93) !important;
+    opacity: 0.85 !important; /* Highly opaque container to block background clashing */
+    z-index: 20 !important;
+    visibility: visible !important;
+  }
+  .story-slide.card-back {
+    transform: translateX(-50%) translate3d(0, 28px, -40px) scale(0.86) !important;
+    opacity: 0.55 !important;
+    z-index: 10 !important;
+    visibility: visible !important;
+  }
+  .story-slide.card-swiped {
+    transform: translateX(-160%) translate3d(0, 0, 0) rotate(-8deg) !important;
+    opacity: 0 !important;
+    z-index: 5 !important;
+    visibility: hidden !important;
+  }
+  
+  /* Hiding card content on backgrounds to completely prevent any text clashing overlays */
+  .story-slide.card-middle .slide-content,
+  .story-slide.card-back .slide-content {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.4s ease !important;
+  }
+  .story-slide.card-front .slide-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: opacity 0.4s ease !important;
   }
 }
 
@@ -1537,24 +1608,6 @@ a {
     height: auto;
     aspect-ratio: 16 / 9;
     max-height: none;
-  }
-  .scroll-story-container {
-    position: relative;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem 1rem;
-    pointer-events: auto;
-  }
-  .story-slide {
-    position: relative;
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    padding: 0;
-    transition: none;
   }
   .scroll-indicator {
     display: none; /* Hide scrolling prompting animations in the text cards */
