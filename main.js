@@ -169,19 +169,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smoothly LERP scroll position to eliminate layout thrashing
     currentScrollY += (lastScrollY - currentScrollY) * 0.08;
     
-    // Calculate progress as the canvas block scrolls naturally through the viewport
+    // Unified rotation progress: starts at bottom of viewport, completes 100% spin exactly at 75% of viewport height
     const enterBound = arenaStart - window.innerHeight;
-    const scrollRange = arenaHeight + window.innerHeight;
+    const rotationRange = window.innerHeight * 0.75;
     
-    let scrollFraction = 0;
-    if (scrollRange > 0) {
-      scrollFraction = (currentScrollY - enterBound) / scrollRange;
-      scrollFraction = Math.max(0, Math.min(1, scrollFraction));
+    let rotationFraction = 0;
+    if (rotationRange > 0) {
+      rotationFraction = (currentScrollY - enterBound) / rotationRange;
+      rotationFraction = Math.max(0, Math.min(1, rotationFraction));
     }
-    
-    // Calculate progress fraction for faster rotation (completes 100% spin by 75% of scroll path - 75% up the screen)
-    let rotationFraction = scrollFraction / 0.75;
-    rotationFraction = Math.max(0, Math.min(1, rotationFraction));
     
     // Calculate targeted frame (1 to 73) based on accelerated spin fraction
     targetFrame = Math.floor(rotationFraction * (totalFrames - 1)) + 1;
