@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dundee Sole | Premium Streetwear & Sneaker Restoration Lab</title>
+  <meta name="description" content="Welcome to Dundee Sole—Dundee's premium vintage streetwear hub and professional trainer refurbishment clinic. Experience our immersive scroll-scrubbing showcase.">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styling -->
+  <link rel="stylesheet" href="index.css?v=2.5">
+</head>
+<body class="theme-clinical">
+
+  <!-- Elegant Preloader Screen -->
+  <div id="preloader" class="preloader-overlay">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <span class="preloader-logo-text">DUNDEE SOLE</span>
+        <span class="preloader-sub">RESTORATION LAB</span>
+      </div>
+      <div class="preloader-track">
+        <div id="preloader-bar" class="preloader-bar"></div>
+      </div>
+      <div class="preloader-status">
+        <span class="status-label">PRELOADING ASSETS</span>
+        <span id="preloader-pct" class="status-percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Studio Lighting (Fixed Background Layers) -->
+  <div class="ambient-glow-system">
+    <div class="glow-layer glow-copper" id="glow-c"></div>
+    <div class="glow-layer glow-teal" id="glow-t"></div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="main-header">
+    <div class="header-container">
+      <!-- Premium Text Brand -->
+      <a href="#" class="brand-logo" id="nav-brand">
+        DUNDEE <span class="accent-text">SOLE</span>
+      </a>
+
+      <!-- Video Logo Centerpiece (Muted, Autoplay, Rounded/Bordered) - Plays Once -->
+      <div class="hero-logo-container" id="hero-logo-box">
+        <video class="hero-logo-video" autoplay muted playsinline>
+          <source src="hero.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="logo-glow-ring"></div>
+      </div>
+
+      <!-- Subtle Hamburger Navigation -->
+      <div class="burger-container">
+        <button class="burger-btn" id="burger-btn" aria-label="Toggle Menu">
+          <span class="burger-line line-top"></span>
+          <span class="burger-line line-middle"></span>
+          <span class="burger-line line-bottom"></span>
+        </button>
+        <div class="burger-dropdown" id="burger-dropdown">
+          <a href="#hero-intro" class="burger-link">Home</a>
+          <a href="#vault" class="burger-link">The Vault</a>
+          <a href="#clinic" class="burger-link">The Clinic Lab</a>
+          <a href="#terrace" class="burger-link">Terrace & Sound</a>
+          <a href="#about" class="burger-link">About Kris</a>
+          <a href="#visit" class="burger-link">Visit & Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Video Intro Section (Full Bleed hero.mp4) -->
+  <section class="hero-intro-section" id="hero-intro">
+    <div class="video-background-wrap">
+      <video class="bg-video" autoplay muted playsinline>
+        <source src="hero.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="hero-intro-content">
+      <span class="hero-eyebrow reveal-up">EST. 2020 — DUNDEE, SCOTLAND</span>
+      <h1 class="hero-title reveal-up">DUNDEE SOLE</h1>
+      <p class="hero-tagline reveal-up">THE PREMIER STREETWEAR VAULT & SNEAKER CLINIC</p>
+      <div class="hero-actions reveal-up">
+        <a href="#canvas-sticky-wrap" class="btn-primary">Explore Archive</a>
+        <div class="dropdown">
+          <button class="btn-secondary dropdown-toggle" id="hero-dropdown-btn">Book Restoration</button>
+          <div class="dropdown-menu" id="hero-dropdown-menu">
+            <a href="https://www.facebook.com/dundeesole" target="_blank" rel="noopener" class="dropdown-item">Facebook Messenger</a>
+            <a href="https://www.instagram.com/dundeesole/" target="_blank" rel="noopener" class="dropdown-item">Instagram DM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-prompt" onclick="document.getElementById('canvas-sticky-wrap').scrollIntoView({behavior: 'smooth'});">
+      <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+      <span class="scroll-label">SCROLL TO EXPERIENCE</span>
+    </div>
+  </section>
+
+  <!-- Main Scroll-Scrubbing Canvas Arena -->
+  <main class="canvas-scroll-arena">
+    <div class="sticky-canvas-container" id="canvas-sticky-wrap">
+      
+      <!-- Landscape 16:9 Fitting Wrapper -->
+      <div class="canvas-ratio-wrapper">
+        <canvas id="scrub-canvas"></canvas>
+      </div>
+
+      <!-- Vertical Vignette Overlays -->
+      <div class="vignette-overlay vignette-top"></div>
+      <div class="vignette-overlay vignette-bottom"></div>
+
+      <!-- Interactive Narrative Overlays (Triggered via Scroll) -->
+      <div class="scroll-story-container">
+        
+        <!-- Story Frame 1: Hero Welcome -->
+        <section class="story-slide slide-active" id="slide-welcome">
+          <div class="slide-content">
+            <span class="eyebrow glow-text-copper">01 / ARCHIVE</span>
+            <h1 class="headline-title">THE ART OF THE SOLE</h1>
+            <p class="headline-body">
+              Where premium street culture meets the precision of clinical restoration. A time-capsule of iconic casual archives, brought back to life in Dundee.
+            </p>
+            <div class="scroll-indicator">
+              <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+              <span class="scroll-label">SCROLL TO UNLOCK ARCHIVE</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Story Frame 2: Craftsmanship -->
+        <section class="story-slide" id="slide-craft">
+          <div class="slide-content">
+            <span class="eyebrow glow-text-teal">02 / CRAFTSMANSHIP</span>
+            <h2 class="headline-title">DEEPLY ROOTED IN DETAIL</h2>
+            <p class="headline-body">
+              Every scratch, stain, and scuff has a history. Our clinic rejuvenates rare sneakers, utilizing custom clinical-grade laundry and specialist materials to preserve authenticity.
+            </p>
+          </div>
+        </section>
+
+        <!-- Story Frame 3: Hype & Culture -->
+        <section class="story-slide" id="slide-culture">
+          <div class="slide-content">
+            <span class="eyebrow glow-text-copper">03 / FOOTBALL CASUALS</span>
+            <h2 class="headline-title">THE BLACK SHEEP OF DUNDEE</h2>
+            <p class="headline-body">
+              Acid House beats, Britpop aesthetics, and vintage terrace style. Dundee Sole is more than a boutique—it is a cultural temple in the heart of Wellgate.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Editorial Section: The Vault (Streetwear & Collectibles Showcase) -->
+  <section class="editorial-section section-theme-obsidian" id="vault">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">CURATED COLLECTION</span>
+        <h2 class="section-title">THE SNEAKER VAULT</h2>
+        <div class="diamond-divider">
+          <span class="diamond-shape"></span>
+        </div>
+        <p class="section-subtitle">
+          Rare deadstock, classic Adidas terraces, and exclusive streetwear collectibles. Handpicked, pristine, and historically significant.
+        </p>
+      </div>
+
+      <div class="grid-vault-showcase">
+        <!-- Card 1 -->
+        <div class="vault-card reveal-up">
+          <div class="card-img-wrapper">
+            <div class="card-glow-bg"></div>
+            <img src="adidas_gazelle_vintage.png" alt="Adidas Gazelle Vintage" class="card-img">
+            <span class="art-badge">1982</span>
+          </div>
+          <div class="card-meta">
+            <span class="card-eyebrow">TERRACE EXCLUSIVE</span>
+            <h3 class="card-title">Adidas Gazelle Vintage</h3>
+            <p class="card-desc">Suede upper, classic white stripes, and gum rubber outsole. Pristine casual shop rack display.</p>
+            <div class="card-footer">
+              <a href="#visit" class="card-link">Enquire</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="vault-card reveal-up">
+          <div class="card-img-wrapper">
+            <div class="card-glow-bg"></div>
+            <img src="nike_dunk_retro.png" alt="Nike Dunk High Retro" class="card-img">
+            <span class="art-badge">1996</span>
+          </div>
+          <div class="card-meta">
+            <span class="card-eyebrow">RETRO HYPE</span>
+            <h3 class="card-title">Nike Dunk High Retro</h3>
+            <p class="card-desc">Crisp leather panels, original design, refurbished to clinical shop display standards.</p>
+            <div class="card-footer">
+              <a href="#visit" class="card-link">Enquire</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="vault-card reveal-up">
+          <div class="card-img-wrapper">
+            <div class="card-glow-bg"></div>
+            <img src="stone_island_jacket.png" alt="Stone Island Jacket" class="card-img">
+            <span class="art-badge">VINTAGE</span>
+          </div>
+          <div class="card-meta">
+            <span class="card-eyebrow">VINTAGE CASUAL</span>
+            <h3 class="card-title">Stone Island Vintage Jacket</h3>
+            <p class="card-desc">Rare treated fabric piece, iconic compass sleeve badge, treated and restored clothing rack heritage.</p>
+            <div class="card-footer">
+              <a href="#visit" class="card-link">Enquire</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: The Clinic (Refurbishment and Restoration Lab) -->
+  <section class="editorial-section section-theme-clinical" id="clinic">
+    <div class="section-container">
+      <div class="clinic-grid">
+        
+        <!-- Left: Clinical Showcase Image/Art -->
+        <div class="clinic-media reveal-up">
+          <div class="clinic-display-box">
+            <div class="clinic-glow"></div>
+            <div class="clinic-illustration">
+              <div class="circle-ring ring-1"></div>
+              <div class="circle-ring ring-2"></div>
+              <div class="circle-ring ring-3"></div>
+              <div class="clinic-brand-stamp">
+                <span class="stamp-title">DUNDEE SOLE</span>
+                <span class="stamp-sub">CLINICAL APPROVED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Clinic Information -->
+        <div class="clinic-info reveal-up">
+          <span class="section-eyebrow text-teal-accent">RESTORATION CLINIC</span>
+          <h2 class="section-title">THE CLINIC LAB</h2>
+          <div class="diamond-divider">
+            <span class="diamond-shape"></span>
+          </div>
+          <p class="clinic-lead">
+            We don't just clean sneakers—we restore legacies. Our custom clinical laboratory uses pH-balanced cleaning formulas and ultrasonic state-of-the-art tools to revive any sole.
+          </p>
+
+          <div class="clinic-features">
+            <!-- Feature 1 -->
+            <div class="clinic-feature-item">
+              <div class="feature-icon-box">01</div>
+              <div class="feature-text">
+                <h4 class="feature-heading">Ultrasonic Deep Cleanse</h4>
+                <p class="feature-body">Removing deeply embedded particles without compromising premium suedes, nylons, and leathers.</p>
+              </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="clinic-feature-item">
+              <div class="feature-icon-box">02</div>
+              <div class="feature-text">
+                <h4 class="feature-heading">Color Restoration</h4>
+                <p class="feature-body">Custom pigments matched to original vintage trainer release specifications for fading midsoles and uppers.</p>
+              </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="clinic-feature-item">
+              <div class="feature-icon-box">03</div>
+              <div class="feature-text">
+                <h4 class="feature-heading">Protective Shielding</h4>
+                <p class="feature-body">Applying hydrophobic, oleophobic coatings to withstand wet and cold Scottish elements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Terrace & Sound (Music, Casuals, and Community) -->
+  <section class="editorial-section section-theme-terrace" id="terrace">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">THE CULTURE</span>
+        <h2 class="section-title">TERRACE & SOUND</h2>
+        <div class="diamond-divider">
+          <span class="diamond-shape"></span>
+        </div>
+        <p class="section-subtitle">
+          Rooted in Acid House beats, football casual culture, and the Britpop style of Dundee. The black sheep, standing out with vintage pride.
+        </p>
+      </div>
+
+      <div class="terrace-split">
+        <div class="terrace-block reveal-up bg-copper-card">
+          <div class="block-icon">⚡</div>
+          <h3 class="block-title">Acid House Heritage</h3>
+          <p class="block-desc">
+            The rebellious syncopation of the 90s, high-vis neon styling, and warehouse dance energy. We carry that independence in our custom trainer customizations and graphics.
+          </p>
+        </div>
+
+        <div class="terrace-block reveal-up bg-teal-card">
+          <div class="block-icon">⚽</div>
+          <h3 class="block-title">Terrace Casual Style</h3>
+          <p class="block-desc">
+            Pre-match pints, Adidas Gazelles, Stone Island jackets, and vintage football shirts. Dundee United's tangerine and Dundee FC's dark blue merged in street authenticity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Meet the Founder (Kris Boyle Story) -->
+  <section class="editorial-section section-theme-obsidian" id="about">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">THE SOLE DOCTOR</span>
+        <h2 class="section-title">THE MAN BEHIND THE SOLE</h2>
+        <div class="diamond-divider">
+          <span class="diamond-shape"></span>
+        </div>
+      </div>
+
+      <div class="about-split clinic-grid">
+        <!-- Left Side: Editorial Portrait Display -->
+        <div class="about-quote-box reveal-up">
+          <div class="clinic-display-box quote-display-box portrait-display-box">
+            <div class="clinic-glow quote-glow"></div>
+            <img src="kris.jpg" alt="Kris Boyle - Dundee Sole" class="founder-portrait-img">
+            <div class="quote-content-overlay">
+              <span class="quote-symbol">“</span>
+              <p class="quote-text-quote">
+                I was the black sheep growing up in Stobswell. But seeing bands like The View succeed showed me working-class lads can build a future.
+              </p>
+              <div class="quote-author-meta">
+                <span class="author-name">Kris Boyle</span>
+                <span class="author-title">Founder, Dundee Sole</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Biographical Story -->
+        <div class="about-story-text reveal-up">
+          <p class="clinic-lead text-orange-accent">From Barbershop Repairs to Global Recognition</p>
+          <div class="story-paragraphs">
+            <p class="story-para">
+              Kris Boyle’s journey is a narrative of absolute resilience. Starting out by restoring premium casual footwear in the corner of a local Dundee barbershop in 2018, Kris combined a deep passion for vintage streetwear, terrace fashion, and expert shoe restoration to establish Dundee Sole. Today, it stands as a cultural monument in the heart of Wellgate Centre.
+            </p>
+            <p class="story-para">
+              Earning the nickname Dundee’s <strong>"Shoe Doctor,"</strong> Kris has revived deadstock Adidas trainers for collectors worldwide, built custom boots for Dundee FC legend Fabian Caballero, and even caught the eye of legendary Wu-Tang Clan member <strong>Raekwon the Chef</strong> via Instagram for his custom sneaker craftsmanship.
+            </p>
+            <p class="story-para">
+              But his work goes far beyond sneaker restoration. Kris is a dedicated community stalwart, vocal anti-knife crime campaigner, and mentor. By speaking out against negative online culture and aiming to launch a digital media academy, Kris is actively dedicating his platform to guide and inspire Dundee’s next generation of builders.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Footer -->
+  <footer class="luxury-footer" id="visit">
+    <div class="footer-container">
+      
+      <!-- Left Column: Branding -->
+      <div class="footer-col brand-col reveal-up">
+        <a href="#" class="footer-brand">DUNDEE <span class="accent-text">SOLE</span></a>
+        <p class="brand-tagline">
+          The ultimate temple for vintage casual style and professional sneaker care in Scotland.
+        </p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/dundeesole" target="_blank" rel="noopener" class="social-icon">Facebook</a>
+          <a href="https://www.instagram.com/dundeesole/" target="_blank" rel="noopener" class="social-icon">Instagram</a>
+        </div>
+      </div>
+
+      <!-- Center Column: Hours -->
+      <div class="footer-col hours-col reveal-up">
+        <h4 class="footer-title">THE HOURS</h4>
+        <ul class="hours-list">
+          <li><span>Monday - Saturday</span> <span>10:00 - 17:30</span></li>
+          <li><span>Sunday</span> <span>12:00 - 16:00</span></li>
+          <li class="location-badge">Wellgate Shopping Centre, Dundee</li>
+        </ul>
+      </div>
+
+      <!-- Right Column: Contact -->
+      <div class="footer-col contact-col reveal-up">
+        <h4 class="footer-title">THE BOOKING</h4>
+        <p class="contact-prompt">Ready to restore your favorites? Connect with our specialists directly via social channels.</p>
+        <div class="footer-dropdown dropdown">
+          <button class="btn-primary dropdown-toggle w-100" id="footer-dropdown-btn">Contact Us</button>
+          <div class="dropdown-menu" id="footer-dropdown-menu">
+            <a href="https://www.facebook.com/dundeesole" target="_blank" rel="noopener" class="dropdown-item">Facebook Page</a>
+            <a href="https://www.instagram.com/dundeesole/" target="_blank" rel="noopener" class="dropdown-item">Instagram Profile</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="bottom-container">
+        <p class="copy-text">&copy; 2026 Dundee Sole. Crafted for Sneaker Collectors.</p>
+        <p class="heritage-text">Dundee, Scotland</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="main.js"></script>
+</body>
+</html>
