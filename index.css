@@ -1514,11 +1514,11 @@ a {
     text-align: center !important;
   }
   
-  /* 3D Stacking overlapping cards deck styles strictly on stacked screens */
+  /* 3D Stacking shingled cards deck styles strictly on stacked screens */
   .scroll-story-container {
     position: relative !important;
     width: 100% !important;
-    height: 310px !important; /* Stitched snug height for swiping card pile */
+    height: 460px !important; /* Expanded height to fit the beautiful 3D shingled card fan layout */
     margin: 1.5rem auto 2.5rem auto !important;
     padding: 0 !important;
     pointer-events: auto !important;
@@ -1546,43 +1546,53 @@ a {
     display: none !important;
   }
   
-  /* Overlapping deck states */
-  .story-slide.card-front {
-    transform: translateX(-50%) translate3d(0, 0, 0) scale(1.0) !important;
+  /* Overlapping shingled deck transform states (all 3 cards remain visible simultaneously!) */
+  #slide-welcome {
+    --natural-y: 0px;
+  }
+  #slide-craft {
+    --natural-y: 65px;
+  }
+  #slide-culture {
+    --natural-y: 130px;
+  }
+
+  .story-slide.state-active {
+    transform: translateX(-50%) translate3d(0, var(--natural-y), 0) scale(1.05) !important;
     opacity: 1 !important;
     z-index: 30 !important;
     visibility: visible !important;
   }
-  .story-slide.card-middle {
-    transform: translateX(-50%) translate3d(0, 14px, -20px) scale(0.93) !important;
-    opacity: 0.85 !important; /* Highly opaque container to block background clashing */
+  .story-slide.state-sibling-1 {
+    transform: translateX(-50%) translate3d(0, var(--natural-y), -20px) scale(0.92) !important;
+    opacity: 0.8 !important;
     z-index: 20 !important;
     visibility: visible !important;
   }
-  .story-slide.card-back {
-    transform: translateX(-50%) translate3d(0, 28px, -40px) scale(0.86) !important;
+  .story-slide.state-sibling-2 {
+    transform: translateX(-50%) translate3d(0, var(--natural-y), -40px) scale(0.82) !important;
     opacity: 0.55 !important;
     z-index: 10 !important;
     visibility: visible !important;
   }
-  .story-slide.card-swiped {
-    transform: translateX(-160%) translate3d(0, 0, 0) rotate(-8deg) !important;
+  
+  /* Hiding body descriptions on background shingled cards to prevent overlaps, while letting titles peek out beautifully */
+  .story-slide.state-sibling-1 .headline-body,
+  .story-slide.state-sibling-2 .headline-body {
     opacity: 0 !important;
-    z-index: 5 !important;
     visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
   
-  /* Hiding card content on backgrounds to completely prevent any text clashing overlays */
-  .story-slide.card-middle .slide-content,
-  .story-slide.card-back .slide-content {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: opacity 0.4s ease !important;
-  }
-  .story-slide.card-front .slide-content {
+  .story-slide.state-active .headline-body {
     opacity: 1 !important;
     visibility: visible !important;
-    transition: opacity 0.4s ease !important;
+    height: auto !important;
+    margin-top: 1rem !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 }
 

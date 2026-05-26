@@ -226,23 +226,23 @@ document.addEventListener('DOMContentLoaded', () => {
     craftSlide.classList.remove('slide-active');
     cultureSlide.classList.remove('slide-active');
     
-    // 2. Mobile/Tablet custom swiping 3D stacked deck classes
-    welcomeSlide.classList.remove('card-front', 'card-middle', 'card-back', 'card-swiped');
-    craftSlide.classList.remove('card-front', 'card-middle', 'card-back', 'card-swiped');
-    cultureSlide.classList.remove('card-front', 'card-middle', 'card-back', 'card-swiped');
+    // 2. Mobile/Tablet custom swiping 3D stacked deck classes (all 3 visible!)
+    welcomeSlide.classList.remove('state-active', 'state-sibling-1', 'state-sibling-2');
+    craftSlide.classList.remove('state-active', 'state-sibling-1', 'state-sibling-2');
+    cultureSlide.classList.remove('state-active', 'state-sibling-1', 'state-sibling-2');
     
     if (frame <= 40) {
-      welcomeSlide.classList.add('slide-active', 'card-front');
-      craftSlide.classList.add('card-middle');
-      cultureSlide.classList.add('card-back');
+      welcomeSlide.classList.add('slide-active', 'state-active');
+      craftSlide.classList.add('state-sibling-1');
+      cultureSlide.classList.add('state-sibling-2');
     } else if (frame <= 85) {
-      welcomeSlide.classList.add('card-swiped');
-      craftSlide.classList.add('slide-active', 'card-front');
-      cultureSlide.classList.add('card-middle');
+      welcomeSlide.classList.add('state-sibling-1');
+      craftSlide.classList.add('slide-active', 'state-active');
+      cultureSlide.classList.add('state-sibling-1');
     } else {
-      welcomeSlide.classList.add('card-swiped');
-      craftSlide.classList.add('card-swiped');
-      cultureSlide.classList.add('slide-active', 'card-front');
+      welcomeSlide.classList.add('state-sibling-2');
+      craftSlide.classList.add('state-sibling-1');
+      cultureSlide.classList.add('slide-active', 'state-active');
     }
   }
 
