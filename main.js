@@ -100,10 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Canvas Resizing & High-DPI Scaling (16:9 Cover Fit)
   function resizeCanvas() {
     if (!canvas) return;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const container = canvas.parentElement; // Read dimensions strictly from the 16:9 aspect ratio container wrapper
+    if (!container) return;
     
-    // High-DPI sizing
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    
+    // High-DPI sizing based on actual display bounds (guarantees perfect pixel density on Retina/phone screens)
     canvas.width = width * window.devicePixelRatio;
     canvas.height = height * window.devicePixelRatio;
     
@@ -127,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
     
-    const imgWidth = 1280;
-    const imgHeight = 720;
+    const imgWidth = img.naturalWidth || 1280;
+    const imgHeight = img.naturalHeight || 720;
     const imgRatio = imgWidth / imgHeight;
     const canvasRatio = canvasWidth / canvasHeight;
     

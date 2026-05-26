@@ -518,12 +518,21 @@ a {
 }
 
 .hero-tagline {
-  font-size: clamp(0.85rem, 2vw, 1.2rem);
-  font-weight: 500;
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
+  font-weight: 600;
   letter-spacing: 0.15em;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   text-transform: uppercase;
   max-width: 650px;
+  background: rgba(6, 7, 9, 0.65); /* Elegant translucent backdrop */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  line-height: 1.5;
 }
 
 .hero-actions {
@@ -1361,10 +1370,36 @@ a {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.footer-copyright-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.maker-text {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+.maker-link {
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.maker-link:hover {
+  color: var(--accent-current);
+  border-bottom-color: var(--accent-current);
 }
 
 .heritage-text {
@@ -1410,16 +1445,71 @@ a {
     padding: 0.5rem 1rem;
   }
   .editorial-section {
-    padding: 2.5rem 1.25rem; /* Tightened from 6rem to 2.5rem to eradicate huge gaps on mobile/tablet */
+    padding: 2rem 1.25rem; /* Ultra snug mobile paddings */
+  }
+  .canvas-scroll-arena {
+    height: auto;
+    min-height: auto;
+    padding: 1rem 0;
+  }
+  #canvas-sticky-wrap {
+    height: auto;
+    flex-direction: column;
+    display: flex;
+  }
+  .canvas-ratio-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: none;
+  }
+  .scroll-story-container {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    pointer-events: auto;
   }
   .story-slide {
-    padding: 0 5%;
+    position: relative;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    padding: 0;
+    transition: none;
+  }
+  .scroll-indicator {
+    display: none; /* Hide scrolling prompting animations in the text cards */
   }
   .headline-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .headline-body {
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .about-story-text {
+    text-align: center;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-story-text .clinic-lead {
+    text-align: center;
+  }
+  .about-story-text .story-paragraphs {
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -1619,6 +1709,8 @@ a {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.8;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .story-para strong {
