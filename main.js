@@ -269,10 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('theme-obsidian', 'theme-clinical', 'theme-terrace');
         
         if (entry.target.classList.contains('canvas-scroll-arena')) {
-          document.body.classList.add('theme-obsidian');
+          document.body.classList.add('theme-clinical');
         } else if (id === 'vault') {
           document.body.classList.add('theme-obsidian');
-        } else if (id === 'clinic') {
+        } else if (id === 'clinic' || id === 'about') {
           document.body.classList.add('theme-clinical');
         } else if (id === 'terrace') {
           document.body.classList.add('theme-terrace');
