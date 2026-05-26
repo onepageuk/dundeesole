@@ -146,8 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
       drawWidth = canvasHeight * imgRatio;
     }
     
-    // Scale factor to bring the trainer in slightly (88% scale) to prevent any edge cropping
-    const scaleFactor = 0.88;
+    // Scale factor to make the trainer sit edge-to-edge flush against the screen sides
+    const scaleFactor = 1.0;
     drawWidth *= scaleFactor;
     drawHeight *= scaleFactor;
     
