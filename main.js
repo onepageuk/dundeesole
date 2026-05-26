@@ -226,23 +226,12 @@ document.addEventListener('DOMContentLoaded', () => {
     craftSlide.classList.remove('slide-active');
     cultureSlide.classList.remove('slide-active');
     
-    // 2. Mobile/Tablet custom swiping 3D stacked deck classes (all 3 visible!)
-    welcomeSlide.classList.remove('state-active', 'state-sibling-1', 'state-sibling-2');
-    craftSlide.classList.remove('state-active', 'state-sibling-1', 'state-sibling-2');
-    cultureSlide.classList.remove('state-active', 'state-sibling-1', 'state-sibling-2');
-    
     if (frame <= 40) {
-      welcomeSlide.classList.add('slide-active', 'state-active');
-      craftSlide.classList.add('state-sibling-1');
-      cultureSlide.classList.add('state-sibling-2');
+      welcomeSlide.classList.add('slide-active');
     } else if (frame <= 85) {
-      welcomeSlide.classList.add('state-sibling-1');
-      craftSlide.classList.add('slide-active', 'state-active');
-      cultureSlide.classList.add('state-sibling-1');
+      craftSlide.classList.add('slide-active');
     } else {
-      welcomeSlide.classList.add('state-sibling-2');
-      craftSlide.classList.add('state-sibling-1');
-      cultureSlide.classList.add('slide-active', 'state-active');
+      cultureSlide.classList.add('slide-active');
     }
   }
 
