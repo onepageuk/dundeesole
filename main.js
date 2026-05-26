@@ -175,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollFraction = Math.max(0, Math.min(1, scrollFraction));
     }
     
-    // Calculate progress fraction for faster rotation (completes 100% spin by 70% of scroll path)
-    let rotationFraction = scrollFraction / 0.7;
+    // Calculate progress fraction for faster rotation (completes 100% spin by 52% of scroll path - just over halfway)
+    let rotationFraction = scrollFraction / 0.52;
     rotationFraction = Math.max(0, Math.min(1, rotationFraction));
     
     // Calculate targeted frame (1 to 73) based on accelerated spin fraction
